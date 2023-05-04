@@ -13,7 +13,7 @@ const Menu = [
     id: 2,
     image: "images/allupakoida.jpg",
     name: "allu pakoida",
-    category: "evening",
+    category: "breakfast",
     price: "20₹",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
@@ -40,7 +40,7 @@ const Menu = [
     id: 5,
     image: "../images/pizza.jpg",
     name: "pizza",
-    category: "evening",
+    category: "dinner",
     price: "80₹",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
@@ -76,7 +76,7 @@ const Menu = [
     id: 9,
     image: "../images/samosa.jpg",
     name: "samaso",
-    category: "evening",
+    category: "lunch",
     price: "10₹",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
