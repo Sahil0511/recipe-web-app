@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import Menu from "./MenuApi";
 import MenuCard from "./MenuCard";
+import Nav from "./Nav";
 
 const uniqueList = [
   ...new Set(
@@ -9,12 +10,101 @@ const uniqueList = [
       return currElem.category;
     })
   ),
+  "All",
 ];
-console.log(uniqueList);
+
 const Restaurant = () => {
-  const [menuData, setMenuData] = useState(Menu);
+  const [menuData, setMenuData] = useState([
+    {
+      id: 1,
+      image: "images/maggi.jpg",
+      name: "maggi",
+      category: "breakfast",
+      price: "12₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+
+    {
+      id: 2,
+      image: "images/allupakoida.jpg",
+      name: "allu pakoida",
+      category: "breakfast",
+      price: "20₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+    {
+      id: 3,
+      image: "images/corn.jpg",
+      name: "corn",
+      category: "breakfast",
+      price: "10₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+    {
+      id: 4,
+      image: "../images/chola.jpg",
+      name: "chola",
+      category: "lunch",
+      price: "50₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+    {
+      id: 5,
+      image: "../images/pizza.jpg",
+      name: "pizza",
+      category: "dinner",
+      price: "80₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+    {
+      id: 6,
+      image: "../images/nonvegthali.jpg",
+      name: "Non-Veg Thali",
+      category: "dinner",
+      price: "180₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+    {
+      id: 7,
+      image: "../images/sweet.jpg",
+      name: "Sweets",
+      category: "dinner",
+      price: "60₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+    {
+      id: 8,
+      image: "../images/rajmarice.jpg",
+      name: "Rajma Rice",
+      category: "lunch",
+      price: "60₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+    {
+      id: 9,
+      image: "../images/samosa.jpg",
+      name: "samaso",
+      category: "lun",
+      price: "10₹",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, at consectetur totam voluptatibus quibusdam iusto. Accusamus quas, soluta ipsam autem eius necessitatibus fugiat in . ",
+    },
+  ]);
+  const [navList, setNavList] = useState(uniqueList);
 
   const filterItem = (category) => {
+    if (category === "All") {
+      setMenuData(Menu);
+      return;
+    }
     const updateList = Menu.filter((currElem) => {
       return currElem.category === category;
     });
@@ -24,31 +114,7 @@ const Restaurant = () => {
 
   return (
     <>
-      <nav className="navbar">
-        <div className="btn-group">
-          <button
-            className="btn-group__item"
-            onClick={() => filterItem("breakfast")}
-          >
-            Breakfast
-          </button>
-          <button
-            className="btn-group__item"
-            onClick={() => filterItem("lunch")}
-          >
-            Lunch
-          </button>
-          <button
-            className="btn-group__item"
-            onClick={() => filterItem("dinner")}
-          >
-            Dinner
-          </button>
-          <button className="btn-group__item" onClick={() => setMenuData(Menu)}>
-            All
-          </button>
-        </div>
-      </nav>
+      <Nav filterItem={filterItem} navList={navList} />
       <MenuCard menuData={menuData} />;
     </>
   );

@@ -9,7 +9,6 @@ const MenuCard = ({ menuData }) => {
 
           return (
             <>
-              {" "}
               <div className="card-container" key={id}>
                 <div className="card">
                   <div className="card-body">
