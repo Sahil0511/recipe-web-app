@@ -14,7 +14,7 @@ const uniqueList = [
 ];
 
 const Restaurant = () => {
-  const [menuData, setMenuData] = useState([Menu]);
+  const [menuData, setMenuData] = useState(Menu);
   const [navList, setNavList] = useState(uniqueList);
 
   const filterItem = (category) => {
