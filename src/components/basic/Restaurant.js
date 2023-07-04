@@ -22,6 +22,7 @@ const Restaurant = () => {
       setMenuData(Menu);
       return;
     }
+
     const updateList = Menu.filter((currElem) => {
       return currElem.category === category;
     });
